@@ -6,6 +6,7 @@ namespace App\Presenters;
 
 use App\IFormFactory;
 use Nette;
+use Tracy\Debugger;
 
 
 final class HomepagePresenter extends Nette\Application\UI\Presenter {
@@ -19,23 +20,7 @@ final class HomepagePresenter extends Nette\Application\UI\Presenter {
 	}
 
 	public function renderDefault(){
-		$this->template->users = $this->context->table('user');
-	}
-
-	/**
-	 * @return \Nette\Application\UI\Control
-	 */
-	protected function createComponentUserForm(){
-		$form = $this->formFactory->create();
-		$form->addText('name', 'Name')->setRequired();
-		$form->addText('surname', 'Surname')->setRequired();
-		$form->addSubmit('formsubmit', 'Send');
-		$form->onSuccess[] = [$this, 'formSubmitted'];
-		return $form;
-	}
-
-	public function formSubmitted(Nette\Application\UI\Form $form, Nette\Utils\ArrayHash $value){
-		dumpe($value);
+		$this->redirect(':User:User:default');
 	}
 
 }

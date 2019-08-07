@@ -14,3 +14,5 @@ session:
 services:
 	router: App\Router\RouterFactory::createRouter
 	- App\FormFactory
+# model
+	- Model\UserModel
