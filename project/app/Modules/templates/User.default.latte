@@ -1,6 +1,11 @@
 {block content}
 
+<a n:href="EditUser:create">New</a>
+
+<br>
 {foreach $users as $u}
 {$u->name} <br>
 {$u->surname}
+<a n:href="EditUser:edit $u->id">Edit</a>
+<br> --------------------------------------------<br>
 {/foreach}

@@ -20,7 +20,6 @@ final class UserPresenter extends Presenter
 		$this->userModel = $userModel;
 	}
 
-
 	public function renderDefault(){
 		$this->template->users = $this->userModel->getUsers();
 	}
