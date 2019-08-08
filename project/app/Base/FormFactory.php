@@ -24,7 +24,8 @@ class FormFactory implements IFormFactory
 	public function create(): Form {
 		$return = new Form();
 		$return->getElementPrototype()->class('form');
-		Debugger::getBar()->getPanel('form')->addForm($return);
+		if(isset($_SERVER['HTTP_HOST']))
+			Debugger::getBar()->getPanel('form')->addForm($return);
 		return $return;
 	}
 }

@@ -9,6 +9,7 @@ namespace App\UserModule\Presenters;
 use App\UserModule\UserFormControl;
 use JP\Composition\UI\Presenter;
 use Model\UserModel;
+use Nette\Application\BadRequestException;
 
 
 /**
@@ -28,6 +29,9 @@ class EditUserPresenter extends \Nette\Application\UI\Presenter {
 
 	public function actionEdit(int $id){
 		$this->u = $this->userModel->getUser($id);
+		if(!$this->u){
+			throw new BadRequestException();
+		}
 		$this->setView('create');
 	}
 
