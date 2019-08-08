@@ -15,8 +15,11 @@ class Bootstrap
 	{
 		$configurator = new Configurator;
 
-		//$configurator->setDebugMode('23.75.345.200'); // enable for your remote IP
-		$configurator->enableTracy(__DIR__ . '/../log');
+		//$configurator->setDebugMode(); // enable for your remote IP
+		$configurator->enableTracy();
+
+		//Debugger::$productionMode = true;
+
 		Debugger::$showLocation = true;
 
 
@@ -27,10 +30,11 @@ class Bootstrap
 			->addDirectory(__DIR__)
 			->register();
 
-		//Debugger::getBar()->addPanel(new FormBar(), 'form');
+		Debugger::getBar()->addPanel(new FormBar(), 'form');
 
 		$configurator->addConfig(__DIR__ . '/config/common.neon');
 		//$configurator->addConfig(__DIR__ . '/config/local.neon');
+
 
 		return $configurator;
 	}

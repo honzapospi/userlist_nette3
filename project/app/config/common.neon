@@ -1,8 +1,6 @@
 parameters:
 
-#tracy:
-#	bar:
-#	  - addPanel(@formBar, form)
+
 
 database:
 	dsn: 'mysql:host=127.0.0.1;dbname=userlist'
@@ -16,6 +14,8 @@ application:
 
 session:
 	expiration: 14 days
+extensions:
+	model: App\ModelExtension
 
 
 services:
@@ -23,6 +23,8 @@ services:
 	router: App\Router\RouterFactory::createRouter
 	- App\FormFactory
 	- App\UserModule\UserFormControl
-# model
+#model:
 	- Model\UserModel
 	- App\UserModule\Presenters\EditUserPresenter
+model:
+	- App\Bar\FormBar
