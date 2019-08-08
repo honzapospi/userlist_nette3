@@ -8,8 +8,10 @@ declare(strict_types=1);
 
 namespace App;
 
+use App\Bar\FormBar;
 use Nette\Application\UI\Form;
 use Nette\SmartObject;
+use Tracy\Debugger;
 
 /**
  * FormFactory
@@ -22,6 +24,7 @@ class FormFactory implements IFormFactory
 	public function create(): Form {
 		$return = new Form();
 		$return->getElementPrototype()->class('form');
+		Debugger::getBar()->getPanel('form')->addForm($return);
 		return $return;
 	}
 }

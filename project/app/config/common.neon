@@ -1,16 +1,25 @@
 parameters:
 
+#tracy:
+#	bar:
+#	  - addPanel(@formBar, form)
+
+database:
+	dsn: 'mysql:host=127.0.0.1;dbname=userlist'
+	user: userlist
+	password: heslo
+
 application:
 	errorPresenter: Error
 	mapping:
 		*: App\*Module\Presenters\*Presenter
-
 
 session:
 	expiration: 14 days
 
 
 services:
+	formBar: App\Bar\FormBar
 	router: App\Router\RouterFactory::createRouter
 	- App\FormFactory
 	- App\UserModule\UserFormControl

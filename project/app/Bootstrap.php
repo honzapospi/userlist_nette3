@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App;
 
+use App\Bar\FormBar;
 use Nette\Configurator;
 use Tracy\Debugger;
 
@@ -18,6 +19,7 @@ class Bootstrap
 		$configurator->enableTracy(__DIR__ . '/../log');
 		Debugger::$showLocation = true;
 
+
 		$configurator->setTimeZone('Europe/Prague');
 		$configurator->setTempDirectory(__DIR__ . '/../temp');
 
@@ -25,8 +27,10 @@ class Bootstrap
 			->addDirectory(__DIR__)
 			->register();
 
+		//Debugger::getBar()->addPanel(new FormBar(), 'form');
+
 		$configurator->addConfig(__DIR__ . '/config/common.neon');
-		$configurator->addConfig(__DIR__ . '/config/local.neon');
+		//$configurator->addConfig(__DIR__ . '/config/local.neon');
 
 		return $configurator;
 	}
