@@ -1,5 +1,11 @@
 parameters:
 
+database:
+	dsn: 'mysql:host=127.0.0.1;dbname=userlist'
+	user: userlist
+	password: heslo
+
+
 application:
 	errorPresenter: Error
 	mapping:
@@ -14,6 +20,8 @@ services:
 	router: App\Router\RouterFactory::createRouter
 	- App\FormFactory
 	- App\UserModule\UserFormControl
+	- App\Layout\IMenuControlFactory
+
 # model
 	- Model\UserModel
 	- App\UserModule\Presenters\EditUserPresenter

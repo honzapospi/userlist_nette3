@@ -6,7 +6,6 @@ namespace App\Presenters;
 
 use App\IFormFactory;
 use Nette;
-use Tracy\Debugger;
 
 
 final class HomepagePresenter extends Nette\Application\UI\Presenter {
