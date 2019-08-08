@@ -10,6 +10,8 @@ namespace App\UserModule;
 
 use App\FormFactory;
 use App\IFormFactory;
+use App\OwnFormRenderer;
+use App\RenderUtils;
 use Model\UserModel;
 use Nette\Application\UI\Form;
 use Nette\SmartObject;
@@ -34,9 +36,12 @@ class UserFormControl
 	public function create($user = null){
 		$this->user = $user;
 		$form = $this->formFactory->create();
+		//RenderUtils::renderBootstrap($form);
+		//$form->setRenderer(new OwnFormRenderer());
 		$form->addText('name', 'Name')
 			->setRequired()
 			->setDefaultValue($user ? $user->name : null);
+		//$form['name']->addError('Chyba jména');
 		$form->addText('surname', 'Surname')
 			->setRequired()
 			->setDefaultValue($user ? $user->surname : null);
@@ -45,6 +50,7 @@ class UserFormControl
 		return $form;
 	}
 	public function formSubmitted(Form $form){
+
 		if($this->user){
 			$this->userModel->updateUser($this->user->id, $form->values->name, $form->values->surname);
 		} else {

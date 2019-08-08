@@ -1,0 +1,37 @@
+{block content}
+
+<form n:name="userForm">
+    {foreach $form->getErrors() as $error}
+        {* ..... *}
+    {/foreach}
+    <table>
+        <tr>
+            <td>
+                <label n:name="name" />
+            </td>
+            <td>
+                <input n:name="name" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label n:name="surname" />
+            </td>
+            <td>
+                <input n:name="surname" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+                <input type="submit" value="Send" />
+            </td>
+        </tr>
+</form>
+
+{form userForm}
+
+    </table>
+
+{/form}

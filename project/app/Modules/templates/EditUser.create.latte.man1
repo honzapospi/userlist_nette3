@@ -1,0 +1,30 @@
+{block content}
+
+{form userForm}
+    <table>
+        <tr>
+            <td>
+                {label name}
+            </td>
+            <td>
+                {input name}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {label surname}Příjmení{/label}
+            </td>
+            <td>
+                {input surname}
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+                {input formsubmit}
+            </td>
+        </tr>
+    </table>
+
+{/form}
